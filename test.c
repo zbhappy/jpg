@@ -47,7 +47,7 @@ int fb32_draw_font(pfb_info_t pfb, int x, int y, int ch, u32_t color)
 
 	//step 1. get ascii code with toascii()
 	asc = toascii(ch);	
-	
+    printf("%d\n", asc);
 	//step 2. get the index of charactor 'E' in font_8X16[]
 	index = 16 * asc;
 
@@ -55,11 +55,14 @@ int fb32_draw_font(pfb_info_t pfb, int x, int y, int ch, u32_t color)
 	for(i = 0; i < 16; i++)
 	{
 		cc = fontdata_8x16[index + i];
+        printf("%x\n", cc);
 		//判断cc这个字节中各个位是否为1
 		for(j = 0; j < 8; j++)
 		{
-			if((cc >> j) & 0x01) //是1就打点
-				fb_pixel(  );
+			if((cc << j) & 0x80) //是1就打点
+            {
+				fb_pixel(pfb, x+j, y+i, color  );
+            }
 		}
 	}
 	

@@ -24,7 +24,7 @@ int display_jpeg(char *filename, fb_info fb_inf)
 	u32_t *buf32 = rgb24to32(scale_buf, new_jpeg);
 
 	int i = 0, j = 0, k = 0,m = 0, n = 0;
-    #if 0
+    #if 1
 	for(i = 0; i < new_jpeg.h; ++i){
 		for (j = 0; j < new_jpeg.w; ++j){
 			fb_pixel(fb_inf, j, i, buf32[j + i * new_jpeg.w]);
@@ -50,7 +50,7 @@ int display_jpeg(char *filename, fb_info fb_inf)
 	}
 
     #endif
-    #if 1
+    #if 0
     m = new_jpeg.h;
     while(m >0){
     for(i = 0, j = m - 1; j < new_jpeg.h; i++, j++)

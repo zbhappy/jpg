@@ -21,11 +21,11 @@ int main(int argc, char *argv[])
 	display_jpeg(argv[1], fb_inf);
 
 	
-#if 0 
+#if 1 
 	/* Test mouse */
 	//test_mouse(fb_inf);
 
-	if (init_ft("mao.ttf", 0) != 0){
+	if (init_ft("simhei.ttf", 0) != 0){
 		fprintf(stderr, "Error initial font\n")	;
 		return 1;
 	}
